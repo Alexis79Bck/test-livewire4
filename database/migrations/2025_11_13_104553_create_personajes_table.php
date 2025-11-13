@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('personajes', function (Blueprint $table) {
             $table->id();
+            $table->uuid('uuid')->unique();
             $table->string('nombre', 12)->unique();
             $table->foreignId('user_id')->constrained('user');
             $table->foreignId('tipo_id')->constrained('tipos');
@@ -24,10 +25,6 @@ return new class extends Migration
             $table->integer('experiencia')->default(1);
             $table->integer('salud')->default(100);
             $table->integer('energia')->default(50);
-            // $table->integer('ataque')->default(10);
-            // $table->integer('defensa')->default(5);
-            // $table->text('habilidades')->nullable();
-            // $table->text('biografia')->nullable();
             $table->boolean('activo')->default(true);
             $table->timestamps();
         });

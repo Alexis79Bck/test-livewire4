@@ -13,7 +13,12 @@ return new class extends Migration
     {
         Schema::create('atributo_personajes', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('atributo_id')->constrained('atributos')->cascadeOnDelete();
+            $table->foreignId('personaje_id')->constrained('personajes')->cascadeOnDelete();
+            $table->integer('valor')->default(0);
             $table->timestamps();
+
+            $table->unique(['personaje_id', 'atributo_id']);
         });
     }
 

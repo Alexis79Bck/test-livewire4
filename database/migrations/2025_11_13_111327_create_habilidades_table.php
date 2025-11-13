@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('habilidades', function (Blueprint $table) {
             $table->id();
+            $table->string('nombre');
+            $table->enum('tipo', ['base', 'unica'])->default('base');
+            $table->foreignId('clase_id')->nullable()->constrained()->nullOnDelete();
+            $table->foreignId('tipo_id')->nullable()->constrained()->nullOnDelete();
+            $table->text('descripcion')->nullable();
             $table->timestamps();
         });
     }

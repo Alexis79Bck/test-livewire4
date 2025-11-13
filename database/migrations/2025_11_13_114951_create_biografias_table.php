@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('titulo');
             $table->text('bio');
             $table->timestamps();
+
+            $table->unique(['clase_id', 'tipo_id']); 
         });
     }
 

@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('nombre');
             $table->enum('alineacion', ['bueno', 'malvado', 'neutral'])->default('neutral');
+            $table->text('descripcion');
             $table->timestamps();
         });
     }

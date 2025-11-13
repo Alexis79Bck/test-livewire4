@@ -13,7 +13,13 @@ return new class extends Migration
     {
         Schema::create('habilidad_personajes', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('habilidad_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('personaje_id')->constrained()->cascadeOnDelete();
+            $table->integer('nivel')->default(1);
+            $table->boolean('desbloqueada')->default(false);
             $table->timestamps();
+
+            $table->unique(['personaje_id', 'habilidad_id']);
         });
     }
 

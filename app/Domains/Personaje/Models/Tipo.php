@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Models;
+namespace App\Domains\Personaje\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Clase extends Model
+class Tipo extends Model
 {
     use HasFactory;
     protected $fillable = [
@@ -16,7 +16,7 @@ class Clase extends Model
     ];
 
     /**
-     * Obtiene la Clase de Personaje
+     * Obtiene el Tipo de Personaje
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */

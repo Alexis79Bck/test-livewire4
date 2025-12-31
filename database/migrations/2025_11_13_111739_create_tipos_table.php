@@ -13,9 +13,8 @@ return new class extends Migration
     {
         Schema::create('tipos', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre');
-            $table->enum('alineacion', ['bueno', 'malvado', 'neutral'])->default('neutral');
-            $table->text('descripcion');
+            $table->string('nombre')->unique();
+            $table->text('descripcion')->nullable();
             $table->timestamps();
         });
     }

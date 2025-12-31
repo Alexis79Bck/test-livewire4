@@ -13,21 +13,16 @@ return new class extends Migration
     {
         Schema::create('personajes', function (Blueprint $table) {
             $table->id();
+            $table->uuid('uuid')->unique();
             $table->string('nombre', 12)->unique();
-            $table->foreignId('user_id')->constrained('user');
-            $table->foreignId('tipo_id')->constrained('tipos');
-            $table->foreignId('clase_id')->constrained('clases');
-            $table->foreignId('biografia_id')->constrained('biografias');
-            // $table->enum('tipo', ['heroe', 'villano']);
-            // $table->enum('clase', ['guerrero', 'mago', 'arquero', 'pícaro', 'clérigo']);
-            $table->integer('nivel')->default(1);
-            $table->integer('experiencia')->default(1);
-            $table->integer('salud')->default(100);
-            $table->integer('energia')->default(50);
-            // $table->integer('ataque')->default(10);
-            // $table->integer('defensa')->default(5);
-            // $table->text('habilidades')->nullable();
-            // $table->text('biografia')->nullable();
+            $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
+            $table->foreignId('tipo_id')->constrained('tipos')->restrictOnDelete();
+            $table->foreignId('clase_id')->constrained('clases')->restrictOnDelete();
+            $table->foreignId('biografia_id')->nullable()->constrained('biografias');
+            $table->unsignedInteger('nivel')->default(1);
+            $table->unsignedInteger('experiencia')->default(1);
+            $table->unsignedInteger('salud')->default(100);
+            $table->unsignedInteger('energia')->default(50);
             $table->boolean('activo')->default(true);
             $table->timestamps();
         });

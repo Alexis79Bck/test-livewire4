@@ -2,9 +2,9 @@
 
 namespace App\Domains\Procesos\Models;
 
-use App\Domains\Personaje\Models\Clase;
-use App\Domains\Personaje\Models\Personaje;
-use App\Domains\Personaje\Models\Tipo;
+use App\Models\Clase;
+use App\Models\Personaje;
+use App\Models\Tipo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 

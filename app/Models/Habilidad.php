@@ -1,16 +1,14 @@
 <?php
 
-namespace App\Domains\Personaje\Models;
-
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Atributo extends Model
+class Habilidad extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'nombre',
-        'descripcion'
+        'nombre', 'tipo', 'clase_id', 'tipo_id', 'descripcion'
     ];
 }

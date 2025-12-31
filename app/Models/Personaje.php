@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Domains\Personaje\Models;
+namespace App\Models;
 
 use App\Domains\Procesos\Models\Biografia;
 use App\Models\User;
@@ -13,7 +13,7 @@ class Personaje extends Model
     use HasFactory;
 
     protected $fillable = [
-        'uuid', 'usuario_id', 'clase_id', 'tipo_id', 'biografia_id',
+        'uuid', 'clase_id', 'tipo_id', 'biografia_id',
         'nombre', 'nivel', 'experiencia', 'salud', 'energia', 'activo'
     ];
 
@@ -35,7 +35,7 @@ class Personaje extends Model
 
     public function usuario()
     {
-        return $this->belongsTo(User::class, 'usuario_id');
+        return $this->belongsTo(User::class);
     }
 
     public function clase()

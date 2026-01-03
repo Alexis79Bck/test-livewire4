@@ -17,7 +17,7 @@ use App\Domains\Personaje\ValueObjects\Resistencias;
 
 final class Personaje
 {
-     private string $nombre;
+    private string $nombre;
     private int $nivel;
 
     private Fuerza $fuerza;
